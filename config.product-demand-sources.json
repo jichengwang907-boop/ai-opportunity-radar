@@ -1,0 +1,204 @@
+{
+  "purpose": "Product demand acquisition source catalog for AI opportunity radar.",
+  "updated_at": "2026-05-25",
+  "sources": [
+    {
+      "name": "Product Hunt",
+      "category": "product_launch",
+      "website": "https://www.producthunt.com/",
+      "api_or_docs": "https://api.producthunt.com/v2/docs",
+      "demand_signal": "New product launches, votes, comments, product positioning",
+      "access_method": "Public search index now; official GraphQL API when token is available",
+      "auth_required": "Optional",
+      "project_status": "enabled",
+      "priority": "high"
+    },
+    {
+      "name": "Reddit",
+      "category": "user_discussion",
+      "website": "https://www.reddit.com/search/",
+      "api_or_docs": "https://www.reddit.com/dev/api/",
+      "demand_signal": "User complaints, buying questions, workflows, unmet needs",
+      "access_method": "Public JSON search endpoint",
+      "auth_required": "No for current public endpoint",
+      "project_status": "enabled",
+      "priority": "high"
+    },
+    {
+      "name": "Google News",
+      "category": "market_attention",
+      "website": "https://news.google.com/",
+      "api_or_docs": "https://news.google.com/rss/search?q=ai",
+      "demand_signal": "News volume, company launches, media attention, market narrative",
+      "access_method": "RSS search",
+      "auth_required": "No",
+      "project_status": "enabled",
+      "priority": "medium"
+    },
+    {
+      "name": "Hacker News",
+      "category": "developer_discussion",
+      "website": "https://news.ycombinator.com/",
+      "api_or_docs": "https://hn.algolia.com/api",
+      "demand_signal": "Developer discussions, early adopter skepticism, startup pain points",
+      "access_method": "Algolia public API",
+      "auth_required": "No",
+      "project_status": "enabled",
+      "priority": "high"
+    },
+    {
+      "name": "YouTube",
+      "category": "content_demand",
+      "website": "https://www.youtube.com/",
+      "api_or_docs": "https://developers.google.com/youtube/v3/docs/search/list",
+      "demand_signal": "Tutorial demand, review demand, creator attention, content competition",
+      "access_method": "Official YouTube Data API",
+      "auth_required": "YOUTUBE_API_KEY",
+      "project_status": "optional_api",
+      "priority": "medium"
+    },
+    {
+      "name": "X / Twitter",
+      "category": "social_attention",
+      "website": "https://x.com/search",
+      "api_or_docs": "https://docs.x.com/x-api/posts/search/integrate/build-a-query",
+      "demand_signal": "Early social spread, influencer discussion, launch buzz",
+      "access_method": "Official X recent search API",
+      "auth_required": "X_BEARER_TOKEN",
+      "project_status": "optional_api",
+      "priority": "medium"
+    },
+    {
+      "name": "Google Trends",
+      "category": "search_interest",
+      "website": "https://trends.google.com/trends/",
+      "api_or_docs": "https://trends.google.com/trends/",
+      "demand_signal": "Relative search interest over time and region",
+      "access_method": "Manual CSV export or third-party connector",
+      "auth_required": "No for manual export",
+      "project_status": "import_template",
+      "priority": "high"
+    },
+    {
+      "name": "Google Ads Keyword Planner",
+      "category": "search_volume",
+      "website": "https://ads.google.com/home/tools/keyword-planner/",
+      "api_or_docs": "https://developers.google.com/google-ads/api/docs/keyword-planning/overview",
+      "demand_signal": "Keyword volume, CPC, commercial intent",
+      "access_method": "Google Ads account export or Google Ads API",
+      "auth_required": "Google Ads account",
+      "project_status": "import_template",
+      "priority": "high"
+    },
+    {
+      "name": "G2",
+      "category": "b2b_review",
+      "website": "https://www.g2.com/",
+      "api_or_docs": "https://www.g2.com/",
+      "demand_signal": "B2B review count, category maturity, competitor complaints",
+      "access_method": "Official/paid data, partner export, or manual public review summary",
+      "auth_required": "Usually yes for structured data",
+      "project_status": "import_template",
+      "priority": "high"
+    },
+    {
+      "name": "Capterra",
+      "category": "b2b_review",
+      "website": "https://www.capterra.com/",
+      "api_or_docs": "https://www.capterra.com/",
+      "demand_signal": "Software category demand, reviews, alternatives, buyer language",
+      "access_method": "Export/manual public listing summary",
+      "auth_required": "Usually yes for structured data",
+      "project_status": "import_template",
+      "priority": "medium"
+    },
+    {
+      "name": "Apple App Store Search",
+      "category": "app_market",
+      "website": "https://www.apple.com/app-store/",
+      "api_or_docs": "https://performance-partners.apple.com/search-api",
+      "demand_signal": "App competitors, ratings, category saturation",
+      "access_method": "Public iTunes Search API",
+      "auth_required": "No",
+      "project_status": "planned",
+      "priority": "medium"
+    },
+    {
+      "name": "Amazon",
+      "category": "ecommerce",
+      "website": "https://www.amazon.com/",
+      "api_or_docs": "https://webservices.amazon.com/paapi5/documentation/",
+      "demand_signal": "Product supply, price, reviews, ratings, bestseller signals",
+      "access_method": "Product Advertising API or seller export",
+      "auth_required": "Amazon Associates/API credentials",
+      "project_status": "import_template",
+      "priority": "high"
+    },
+    {
+      "name": "eBay",
+      "category": "ecommerce",
+      "website": "https://www.ebay.com/",
+      "api_or_docs": "https://developer.ebay.com/api-docs/buy/browse/overview.html",
+      "demand_signal": "Listings, price, availability, sold-market proxy",
+      "access_method": "Official Browse API",
+      "auth_required": "OAuth app credentials",
+      "project_status": "planned",
+      "priority": "medium"
+    },
+    {
+      "name": "Etsy",
+      "category": "ecommerce",
+      "website": "https://www.etsy.com/",
+      "api_or_docs": "https://developers.etsy.com/documentation/",
+      "demand_signal": "Niche maker products, listing volume, handmade/creator demand",
+      "access_method": "Official Etsy Open API",
+      "auth_required": "API key",
+      "project_status": "planned",
+      "priority": "medium"
+    },
+    {
+      "name": "淘宝开放平台",
+      "category": "china_ecommerce",
+      "website": "https://open.taobao.com/",
+      "api_or_docs": "https://open.taobao.com/",
+      "demand_signal": "商品供给、销量、价格、店铺竞争",
+      "access_method": "官方开放平台或商家后台导出",
+      "auth_required": "淘宝开放平台账号",
+      "project_status": "import_template",
+      "priority": "high"
+    },
+    {
+      "name": "京东开放平台",
+      "category": "china_ecommerce",
+      "website": "https://jos.jd.com/",
+      "api_or_docs": "https://jos.jd.com/",
+      "demand_signal": "商品供给、销量、价格、评论",
+      "access_method": "官方开放平台或商家后台导出",
+      "auth_required": "京东开放平台账号",
+      "project_status": "import_template",
+      "priority": "high"
+    },
+    {
+      "name": "Similarweb",
+      "category": "traffic_intelligence",
+      "website": "https://www.similarweb.com/",
+      "api_or_docs": "https://developers.similarweb.com/",
+      "demand_signal": "Competitor traffic, acquisition channels, geography",
+      "access_method": "Paid API or export",
+      "auth_required": "Paid account/API key",
+      "project_status": "import_template",
+      "priority": "medium"
+    },
+    {
+      "name": "Ahrefs",
+      "category": "seo_intelligence",
+      "website": "https://ahrefs.com/",
+      "api_or_docs": "https://docs.ahrefs.com/",
+      "demand_signal": "Keyword volume, backlinks, competitor SEO demand",
+      "access_method": "Paid API or export",
+      "auth_required": "Paid account/API key",
+      "project_status": "import_template",
+      "priority": "medium"
+    }
+  ]
+}

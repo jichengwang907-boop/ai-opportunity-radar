@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-opportunity-radar"
+version = "0.1.0"
+description = "Local-first market research and AI product opportunity radar."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "AI Opportunity Radar contributors" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+desktop-build = ["pyinstaller>=6.0"]
+
+[project.scripts]
+shopping-intel = "shopping_intel.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["shopping_intel*"]

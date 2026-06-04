@@ -1,0 +1,6 @@
+source,product_id,title,url,price,currency,seller,category,stock_status,rating,review_count,sales_volume,last_updated,collected_at
+sample-marketplace,C001,USB 充电便携咖啡机车载旅行款,https://example.com/p/c001,299.0,CNY,示例店铺D,咖啡机,在售,4.8,186,520,2026-05-20,2026-05-23
+sample-marketplace,C002,家用半自动咖啡机,https://example.com/p/c002,599.0,CNY,示例店铺C,咖啡机,在售,4.6,210,880,2025-10-01,2026-05-23
+sample-marketplace,C003,老款便携胶囊咖啡机,https://example.com/p/c003,399.0,CNY,示例店铺G,咖啡机,下架,4.0,55,60,2025-12-15,2026-05-23
+sample-marketplace,P001,宠物自动喂食器定时双碗款,https://example.com/p/p001,169.0,CNY,宠物店A,宠物用品,在售,4.8,980,3200,2026-05-22,2026-05-23
+sample-marketplace,P002,智能宠物自动喂食器带摄像头,https://example.com/p/p002,359.0,CNY,宠物店B,宠物用品,在售,4.7,641,1650,,2026-05-23

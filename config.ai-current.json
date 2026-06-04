@@ -1,0 +1,57 @@
+{
+  "analysis": {
+    "top_n": 8,
+    "stale_search_days": 3,
+    "stale_product_days": 90
+  },
+  "queries": [
+    {
+      "term": "AI智能眼镜",
+      "search_volume": 0,
+      "expected_terms": ["AI", "智能眼镜", "Ray-Ban", "Meta", "Halo", "眼镜"],
+      "forbidden_terms": ["论文", "benchmark", "arxiv"],
+      "min_result_count": 6,
+      "min_relevant_results": 4,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "AI录音笔",
+      "search_volume": 0,
+      "expected_terms": ["AI", "录音", "Plaud", "NotePin", "转写", "笔"],
+      "forbidden_terms": ["下载", "模板", "论文"],
+      "min_result_count": 5,
+      "min_relevant_results": 3,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "AI翻译耳机",
+      "search_volume": 0,
+      "expected_terms": ["AI", "翻译", "耳机", "Timekettle", "W4", "同传"],
+      "forbidden_terms": ["清洁", "配件", "二手"],
+      "min_result_count": 5,
+      "min_relevant_results": 3,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "AI学习机",
+      "search_volume": 0,
+      "expected_terms": ["AI", "学习机", "学生", "家教", "教育"],
+      "forbidden_terms": ["骗局", "同质化", "资本游戏"],
+      "min_result_count": 5,
+      "min_relevant_results": 3,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    }
+  ],
+  "sources": [
+    {
+      "name": "ai-current-web",
+      "type": "csv",
+      "search_results_path": "data/search_results.ai-current.csv",
+      "products_path": "data/products.ai-current.csv"
+    }
+  ]
+}

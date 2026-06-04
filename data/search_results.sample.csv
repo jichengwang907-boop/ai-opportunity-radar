@@ -1,0 +1,11 @@
+source,query,title,url,rank,result_count,search_volume,snippet,price,currency,seller,rating,review_count,collected_at
+sample-marketplace,便携式咖啡机,旅行便携咖啡杯清洁刷套装,https://example.com/s/c1,1,8,12000,适合咖啡杯和滤网清洁，不含咖啡机,19.9,CNY,示例店铺A,4.1,38,2026-05-01
+sample-marketplace,便携式咖啡机,二手迷你咖啡机配件包,https://example.com/s/c2,2,8,12000,含手柄和替换密封圈，非整机,49.0,CNY,示例店铺B,3.9,12,2026-05-01
+sample-marketplace,便携式咖啡机,家用半自动咖啡机,https://example.com/s/c3,3,8,12000,桌面机型，适合办公室,599.0,CNY,示例店铺C,4.6,210,2026-05-01
+sample-marketplace,便携式咖啡机,USB 充电便携咖啡机车载旅行款,https://example.com/s/c4,4,8,12000,支持车载使用和户外萃取,299.0,CNY,示例店铺D,4.8,186,2026-05-01
+sample-marketplace,宠物自动喂食器,宠物自动喂食器定时双碗款,https://example.com/s/p1,1,230,8600,支持定时出粮和录音提醒,169.0,CNY,宠物店A,4.8,980,2026-05-23
+sample-marketplace,宠物自动喂食器,智能宠物自动喂食器带摄像头,https://example.com/s/p2,2,230,8600,手机远程控制，适合猫狗,359.0,CNY,宠物店B,4.7,641,2026-05-23
+sample-marketplace,宠物自动喂食器,猫狗定时自动喂食器大容量,https://example.com/s/p3,3,230,8600,6L 大容量粮桶，防潮密封,229.0,CNY,宠物店C,4.5,412,2026-05-23
+sample-marketplace,宠物自动喂食器,宠物饮水机自动循环过滤,https://example.com/s/p4,4,230,8600,饮水设备，不是喂食器,89.0,CNY,宠物店D,4.4,300,2026-05-23
+sample-marketplace,宠物自动喂食器,宠物自动喂食器定时不锈钢碗,https://example.com/s/p5,5,230,8600,定时喂食，易清洗,139.0,CNY,宠物店E,4.6,522,2026-05-23
+sample-marketplace,宠物自动喂食器,猫咪宠物自动喂食器 WiFi 款,https://example.com/s/p6,6,230,8600,支持手机 App 和定时计划,199.0,CNY,宠物店F,4.7,688,2026-05-23

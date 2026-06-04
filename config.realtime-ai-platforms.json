@@ -1,0 +1,463 @@
+{
+  "analysis": {
+    "top_n": 5,
+    "stale_search_days": 2,
+    "stale_product_days": 10000,
+    "require_price": false,
+    "source_quality": {
+      "by_source": {
+        "producthunt": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "arxiv": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "huggingface_models": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "huggingface_spaces": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "ai_dev_jobs": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "agentic_engineering_jobs": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "agentdeals": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "oksurf_news": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "api_status_check": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "nvd": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "youtube": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        },
+        "google_trends": {
+          "ignore_empty": true,
+          "min_result_count": 0,
+          "min_relevant_results": 0,
+          "min_avg_relevance": 0
+        }
+      }
+    }
+  },
+  "collector": {
+    "enabled_sources": [
+      "github",
+      "github_issues",
+      "producthunt",
+      "arxiv",
+      "huggingface_models",
+      "huggingface_spaces",
+      "hackernews",
+      "reddit",
+      "google_news",
+      "agentic_engineering_jobs",
+      "agentdeals",
+      "oksurf_news",
+      "api_status_check",
+      "nvd",
+      "youtube"
+    ],
+    "hits_per_source": 5,
+    "request_timeout_seconds": 40,
+    "retry_attempts": 4,
+    "max_failures_per_source": 2,
+    "max_failures_by_source": {
+      "arxiv": 3
+    },
+    "failure_cooldown_by_source": {
+      "arxiv": 180,
+      "agentic_engineering_jobs": 20,
+      "agentdeals": 20
+    },
+    "github_issues_filter": {
+      "enabled": true,
+      "overfetch_factor": 10,
+      "max_fetch_per_query": 50,
+      "keep_if_comments_at_least": 3,
+      "effective_total_strategy": "sample_ratio",
+      "require_demand_hint": true
+    },
+    "request_delay_seconds": 0.25,
+    "request_delay_by_source": {
+      "github": 0.5,
+      "github_issues": 0.75,
+      "producthunt": 0.5,
+      "arxiv": 30,
+      "huggingface_models": 0.5,
+      "huggingface_spaces": 0.5,
+      "hackernews": 0.25,
+      "reddit": 1,
+      "google_news": 0.5,
+      "ai_dev_jobs": 0.5,
+      "agentic_engineering_jobs": 1,
+      "agentdeals": 1,
+      "oksurf_news": 0,
+      "api_status_check": 0,
+      "nvd": 0,
+      "youtube": 0.5
+    },
+    "raw_dir": "data/raw/realtime-ai",
+    "search_results_path": "data/search_results.realtime-ai.csv",
+    "products_path": "data/products.realtime-ai.csv",
+    "external_imports": {
+      "search_results_path": "data/search_results.external-imports.csv",
+      "products_path": "data/products.external-imports.csv"
+    }
+  },
+  "queries": [
+    {
+      "term": "ai agent",
+      "expected_terms": ["ai", "agent"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 10,
+      "min_relevant_results": 3,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "local llm",
+      "expected_terms": ["local", "llm"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 10,
+      "min_relevant_results": 3,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai search",
+      "expected_terms": ["ai", "search"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 10,
+      "min_relevant_results": 3,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai coding assistant",
+      "expected_terms": ["ai", "coding", "assistant"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai meeting notes",
+      "expected_terms": ["ai", "meeting", "notes"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai voice recorder",
+      "expected_terms": ["ai", "voice", "recorder"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai smart glasses",
+      "expected_terms": ["ai", "smart", "glasses"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai translator",
+      "expected_terms": ["ai", "translator"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai customer support",
+      "expected_terms": ["ai", "customer", "support"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai sales assistant",
+      "expected_terms": ["ai", "sales", "assistant"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai lead generation",
+      "expected_terms": ["ai", "lead", "generation"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai email assistant",
+      "expected_terms": ["ai", "email", "assistant"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai data entry",
+      "expected_terms": ["ai", "data", "entry"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai document processing",
+      "expected_terms": ["ai", "document", "processing"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai invoice processing",
+      "expected_terms": ["ai", "invoice", "processing"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai contract review",
+      "expected_terms": ["ai", "contract", "review"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai bookkeeping",
+      "expected_terms": ["ai", "bookkeeping"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai recruiting assistant",
+      "expected_terms": ["ai", "recruiting", "assistant"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai qa testing",
+      "expected_terms": ["ai", "qa", "testing"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai social media manager",
+      "expected_terms": ["ai", "social", "media", "manager"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai web research",
+      "expected_terms": ["ai", "web", "research"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai spreadsheet automation",
+      "expected_terms": ["ai", "spreadsheet", "automation"],
+      "forbidden_terms": ["template-only"],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    }
+  ],
+  "sources": [
+    {
+      "name": "github",
+      "source_filter": "github",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "github_issues",
+      "source_filter": "github_issues",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "producthunt",
+      "source_filter": "producthunt",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "arxiv",
+      "source_filter": "arxiv",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "huggingface_models",
+      "source_filter": "huggingface_models",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "huggingface_spaces",
+      "source_filter": "huggingface_spaces",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "hackernews",
+      "source_filter": "hackernews",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "reddit",
+      "source_filter": "reddit",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "google_news",
+      "source_filter": "google_news",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "ai_dev_jobs",
+      "source_filter": "ai_dev_jobs",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "agentic_engineering_jobs",
+      "source_filter": "agentic_engineering_jobs",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "agentdeals",
+      "source_filter": "agentdeals",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "oksurf_news",
+      "source_filter": "oksurf_news",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "api_status_check",
+      "source_filter": "api_status_check",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "nvd",
+      "source_filter": "nvd",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    },
+    {
+      "name": "youtube",
+      "source_filter": "youtube",
+      "type": "csv",
+      "search_results_path": "data/search_results.realtime-ai.csv",
+      "products_path": "data/products.realtime-ai.csv"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "analysis": {
+    "top_n": 10,
+    "stale_search_days": 7,
+    "stale_product_days": 90
+  },
+  "queries": [
+    {
+      "term": "便携式咖啡机",
+      "search_volume": 12000,
+      "expected_terms": ["便携", "咖啡机", "车载", "充电"],
+      "forbidden_terms": ["二手", "配件", "清洁刷"],
+      "min_result_count": 50,
+      "min_relevant_results": 4,
+      "min_avg_relevance": 0.45,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "宠物自动喂食器",
+      "search_volume": 8600,
+      "expected_terms": ["宠物", "自动", "喂食器", "定时"],
+      "forbidden_terms": ["玩具", "手动"],
+      "min_result_count": 80,
+      "min_relevant_results": 5,
+      "min_avg_relevance": 0.5,
+      "min_item_relevance": 0.34
+    }
+  ],
+  "sources": [
+    {
+      "name": "sample-marketplace",
+      "type": "csv",
+      "search_results_path": "data/search_results.sample.csv",
+      "products_path": "data/products.sample.csv"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "analysis": {
+    "top_n": 5,
+    "stale_search_days": 3,
+    "stale_product_days": 10000,
+    "require_price": false
+  },
+  "queries": [
+    {
+      "term": "ai agent",
+      "search_volume": 0,
+      "expected_terms": [
+        "ai",
+        "agent"
+      ],
+      "forbidden_terms": [
+        "template",
+        "awesome-list-only"
+      ],
+      "min_result_count": 10,
+      "min_relevant_results": 3,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai coding assistant",
+      "search_volume": 0,
+      "expected_terms": [
+        "ai",
+        "coding",
+        "assistant"
+      ],
+      "forbidden_terms": [
+        "template",
+        "awesome-list-only"
+      ],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai search",
+      "search_volume": 0,
+      "expected_terms": [
+        "ai",
+        "search"
+      ],
+      "forbidden_terms": [
+        "template",
+        "awesome-list-only"
+      ],
+      "min_result_count": 10,
+      "min_relevant_results": 3,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai meeting notes",
+      "search_volume": 0,
+      "expected_terms": [
+        "ai",
+        "meeting",
+        "notes"
+      ],
+      "forbidden_terms": [
+        "template",
+        "awesome-list-only"
+      ],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai voice recorder",
+      "search_volume": 0,
+      "expected_terms": [
+        "ai",
+        "voice",
+        "recorder"
+      ],
+      "forbidden_terms": [
+        "template",
+        "awesome-list-only"
+      ],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai smart glasses",
+      "search_volume": 0,
+      "expected_terms": [
+        "ai",
+        "smart",
+        "glasses"
+      ],
+      "forbidden_terms": [
+        "template",
+        "awesome-list-only"
+      ],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "ai translator",
+      "search_volume": 0,
+      "expected_terms": [
+        "ai",
+        "translator"
+      ],
+      "forbidden_terms": [
+        "template",
+        "awesome-list-only"
+      ],
+      "min_result_count": 5,
+      "min_relevant_results": 2,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    },
+    {
+      "term": "local llm",
+      "search_volume": 0,
+      "expected_terms": [
+        "local",
+        "llm"
+      ],
+      "forbidden_terms": [
+        "template",
+        "awesome-list-only"
+      ],
+      "min_result_count": 10,
+      "min_relevant_results": 3,
+      "min_avg_relevance": 0.35,
+      "min_item_relevance": 0.34
+    }
+  ],
+  "sources": [
+    {
+      "name": "github",
+      "type": "csv",
+      "search_results_path": "data/search_results.github-ai.csv",
+      "products_path": "data/products.github-ai.csv"
+    },
+    {
+      "name": "producthunt",
+      "type": "csv",
+      "search_results_path": "data/search_results.producthunt-ai.csv",
+      "products_path": "data/products.producthunt-ai.csv"
+    }
+  ]
+}

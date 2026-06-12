@@ -482,7 +482,7 @@ class DesktopApp(tk.Tk):
         parent.rowconfigure(3, weight=1)
 
         actions = self._card(parent, 0, style_name="ActionCard.TFrame")
-        self._section_header(actions, "工作流", "先导入外部数据，再运行完整分析；只改数据时可直接重算报告。", "Action")
+        self._section_header(actions, "工作流", "导入市场证据、整理商品资料，再运行机会分析或重算报告。", "Action")
 
         self.import_button = ttk.Button(
             actions,
@@ -492,13 +492,21 @@ class DesktopApp(tk.Tk):
         )
         self.import_button.grid(row=2, column=0, sticky="ew", pady=(0, 10))
 
+        self.cleanup_button = ttk.Button(
+            actions,
+            text="整理商品资料表（MVP）",
+            style="Secondary.TButton",
+            command=self.clean_product_data_file,
+        )
+        self.cleanup_button.grid(row=3, column=0, sticky="ew", pady=(0, 10))
+
         self.run_button = ttk.Button(
             actions,
             text="运行完整分析",
             style="Primary.TButton",
             command=self.run_full_analysis,
         )
-        self.run_button.grid(row=3, column=0, sticky="ew", pady=(0, 10))
+        self.run_button.grid(row=4, column=0, sticky="ew", pady=(0, 10))
 
         self.reports_button = ttk.Button(
             actions,
@@ -506,10 +514,10 @@ class DesktopApp(tk.Tk):
             style="Secondary.TButton",
             command=self.rebuild_reports_only,
         )
-        self.reports_button.grid(row=4, column=0, sticky="ew", pady=(0, 10))
+        self.reports_button.grid(row=5, column=0, sticky="ew", pady=(0, 10))
 
         self.refresh_button = ttk.Button(actions, text="刷新摘要", style="Secondary.TButton", command=self.refresh_summary)
-        self.refresh_button.grid(row=5, column=0, sticky="ew")
+        self.refresh_button.grid(row=6, column=0, sticky="ew")
 
         mode = self._card(parent, 1, style_name="ModeCard.TFrame")
         self._section_header(mode, "采集模式", "快速模式会跳过容易限流的 arXiv，其余数据源照常运行。", "Mode")
@@ -526,6 +534,7 @@ class DesktopApp(tk.Tk):
         report_buttons = [
             ("机会排名", ROOT / "reports/opportunity-radar/opportunities.md"),
             ("产品反馈", ROOT / "reports/product-feedback/products.md"),
+            ("整理报告", ROOT / "reports/product-data-cleanup/summary.md"),
             ("实时信号", ROOT / "reports/realtime-ai/summary.md"),
             ("项目目录", ROOT),
         ]
@@ -619,6 +628,20 @@ class DesktopApp(tk.Tk):
             return
         self._start_worker(lambda: self._import_external_file(Path(path)))
 
+    def clean_product_data_file(self) -> None:
+        path = filedialog.askopenfilename(
+            title="选择商品资料表格",
+            filetypes=[
+                ("Excel/CSV", "*.xlsx *.csv"),
+                ("Excel workbook", "*.xlsx"),
+                ("CSV", "*.csv"),
+                ("All files", "*.*"),
+            ],
+        )
+        if not path:
+            return
+        self._start_worker(lambda: self._clean_product_data_file(Path(path)))
+
     def run_full_analysis(self) -> None:
         self._start_worker(lambda: self._run_pipeline(fast=self.fast_mode.get()))
 
@@ -693,7 +716,13 @@ class DesktopApp(tk.Tk):
 
     def _set_controls_enabled(self, enabled: bool) -> None:
         state = "normal" if enabled else "disabled"
-        for button in (self.import_button, self.run_button, self.reports_button, self.refresh_button):
+        for button in (
+            self.import_button,
+            self.cleanup_button,
+            self.run_button,
+            self.reports_button,
+            self.refresh_button,
+        ):
             button.configure(state=state)
 
     def _append_log(self, text: str) -> None:
@@ -740,6 +769,22 @@ class DesktopApp(tk.Tk):
             raise RuntimeError("只支持 .xlsx 或 .csv。")
         self._run_command(python_cmd("-B", "scripts/validate_external_sources.py"), "校验外部数据")
         self._run_command(python_cmd("-B", "scripts/import_external_sources.py"), "生成外部导入")
+
+    def _clean_product_data_file(self, path: Path) -> None:
+        self._log(f"整理商品资料：{path}")
+        self._run_command(
+            python_cmd(
+                "-B",
+                "scripts/product_data_cleaner.py",
+                "--input",
+                str(path),
+                "--out",
+                "reports/product-data-cleanup",
+            ),
+            "整理商品资料",
+        )
+        self._log("整理结果：reports/product-data-cleanup/cleaned_products.csv")
+        self._log("问题报告：reports/product-data-cleanup/summary.md")
 
     def _run_pipeline(self, fast: bool) -> None:
         self._run_command(python_cmd("-B", "scripts/check_credentials.py"), "检查账号/API 状态")

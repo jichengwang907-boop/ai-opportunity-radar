@@ -1,0 +1,7 @@
+商品标题,SKU,价格,库存,类目,图片链接,规格,商品链接,商品描述
+便携榨汁杯 400ml,PJ-400,¥59.9,120,厨房电器,https://example.com/images/pj-400.jpg,400ml 白色,https://example.com/products/pj-400,USB充电便携款
+便携榨汁杯 400ml,PJ-400,59.9元,80,厨房电器,https://example.com/images/pj-400b.jpg,400ml 蓝色,https://example.com/products/pj-400b,同款不同颜色
+智能宠物喂食器,PF-01,199,35,宠物用品,,2L,https://example.com/products/pf-01,定时定量喂食
+无线蓝牙耳机,,abc,50,数码配件,not-a-url,黑色,https://example.com/products/earbud,入门款蓝牙耳机
+折叠收纳箱,BOX-66,39.9,-5,,https://example.com/images/box.webp,66L,https://example.com/products/box,家用收纳
+桌面手机支架,STAND-01,29.9,100,数码配件,https://example.com/images/stand.jpg,铝合金,https://example.com/products/stand,直播桌面支架

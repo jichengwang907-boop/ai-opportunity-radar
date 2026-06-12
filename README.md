@@ -8,6 +8,7 @@ AI Opportunity Radar is a local-first market research toolkit for indie hackers,
 
 - Collects public signals from sources such as GitHub, Product Hunt, Hacker News, Reddit, Google News, YouTube, Google Trends exports, and other optional APIs.
 - Imports manually collected CSV/XLSX research data.
+- Cleans product listing spreadsheets into a standardized review-ready CSV.
 - Scores opportunity areas using demand, supply, commercial proof, buyer intent, execution feasibility, and evidence confidence.
 - Generates Markdown, CSV, and JSON reports.
 - Provides a Windows desktop app for non-technical use.
@@ -15,7 +16,7 @@ AI Opportunity Radar is a local-first market research toolkit for indie hackers,
 
 ## Project Status
 
-The project is usable as a local research assistant and desktop app. It is not a revenue prediction engine and should not be treated as financial advice. Its job is to help you organize evidence and choose what to validate next.
+The project is usable as a local research assistant, desktop app, and first MVP utility for product data cleanup. It is not a revenue prediction engine and should not be treated as financial advice. Its job is to help you organize evidence and choose what to validate next.
 
 Current validated directions from the local research run include:
 
@@ -65,6 +66,12 @@ Run tests:
 py -m unittest discover -s tests
 ```
 
+Run the product data cleanup MVP on sample data:
+
+```powershell
+py -B scripts\product_data_cleaner.py --input data\product_data_cleanup.sample.csv --out reports\product-data-cleanup
+```
+
 Launch the desktop app:
 
 ```powershell
@@ -84,6 +91,7 @@ The full pipeline can run with public/no-token sources, but optional API keys im
 The desktop app is implemented with Tkinter and uses only the Python standard library. It supports:
 
 - Import Excel or CSV manual research data
+- Clean product listing Excel/CSV sheets and generate a review report
 - Run the full analysis pipeline
 - Rebuild reports without collecting new online data
 - Open opportunity, product feedback, realtime signal, and project folders
@@ -130,6 +138,29 @@ Manual research can be imported through:
 
 The importer is designed for exported platform data, Google Trends CSVs, manually collected product research, and other no-token sources.
 
+## Product Data Cleanup MVP
+
+The first standalone MVP module targets a concrete workflow found during research: merchants and small teams often keep messy product listing data in Excel/CSV before uploading it to marketplaces, ERP systems, or service providers.
+
+Use it to:
+
+- Detect product name, SKU, price, stock, category, image URL, specs, description, and source URL columns.
+- Normalize prices, currency labels, stock values, titles, and selling-point snippets.
+- Flag duplicate SKU/title rows, missing required fields, invalid prices, invalid stock, and invalid image links.
+- Export `cleaned_products.csv`, `issues.csv`, `field_mapping.json`, `summary.json`, and `summary.md`.
+
+CLI:
+
+```powershell
+py -B scripts\product_data_cleaner.py --input path\to\products.xlsx --out reports\product-data-cleanup
+```
+
+Desktop:
+
+```text
+AI 机会雷达 -> 整理商品资料表（MVP）
+```
+
 ## Reports
 
 Typical outputs:
@@ -138,6 +169,7 @@ Typical outputs:
 reports/realtime-ai/summary.md
 reports/realtime-ai/analysis.json
 reports/product-feedback/products.md
+reports/product-data-cleanup/summary.md
 reports/opportunity-radar/opportunities.md
 reports/product-demand-sources/sources.md
 ```
@@ -154,7 +186,7 @@ Reports are ignored because they may contain local research data.
 
 ## Roadmap
 
-- Add a product data cleanup MVP module.
+- Validate the product data cleanup MVP with real merchant spreadsheets.
 - Add an invoice/receipt/statement organizer MVP module.
 - Improve source health tracking and retry policies.
 - Add more sample datasets and screenshots.
